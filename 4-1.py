@@ -1,46 +1,59 @@
-import random
-
-def money_enter():
-    amountMoney = int(input("enter the amount of money you want to bet: "))
-    return amountMoney
-
-def game_engine(amountMoney):
-    status = ""
+def guess_game(turns):
+    number = random.randint(1,100)
     
-    dice1 = random.randint(1,6)
-    dice2 = random.randint(1,6)
+    win = False
+  
+    count = 0
     
-    sumDices = dice1 + dice2
-    if sumDices > 5:
-        status = "tai"
-    elif sumDices == 5:
-        status = "hue"
-    else:
-        status = "xiu"
-            
-    guess = input("you guess (tai/xiu): ")
-    
-    if guess.lower() == status:
-        if guess.lower() == "hue":
-            print("excellent")
-            return amountMoney * 3
-        print("you are right")
-        return amountMoney * 2
-    return 0
-
-def tai_xiu():
-    moneyInBank = int(input("nhap tien ban co trong tai khoan: "))
-    
-    while moneyInBank > 0:
-        print(f"you are having {moneyInBank} in account")
-        moneyEnter = money_enter()
-        if moneyEnter <= moneyInBank:
-            moneyInBank -= moneyEnter
-            moneyInBank += game_engine(moneyEnter)
-            player = input("do you want to play again? (y/n) ")
-            if player == "n":
-                break
+    for i in range(turns):
+        numberGuess = int(input("nhap so ban doan: "))
+        count += 1
+        if numberGuess == number:
+            print(f"ban doan dung sau {i+1} lan")
+            win = True
+            break
         else:
-            print("not enough money")
+            if numberGuess < number:
+                print("so ban doan nho hon")
+            else:
+                print("so ban doan lon hon ")
+                
 
-tai_xiu()
+    print(f"so dung la: {number}")
+    print(f"so ban doan la: {numberGuess}")
+    
+    return win
+        
+        
+            
+def choose_level():
+    print("\t che do 1 (easy): ban co 6 luot doan.")
+    print("\t che do 2 (medium): ban co 4 luot doan.")
+    print("\t che do 3 (hard): ban co 2 luot doan.")
+    
+    limit = True
+    while limit:
+        level = int(input("chon che do ban muon choi (1->3): "))
+        if level >= 1 and level <= 3:
+           return 6 if level == 1 else 4 if level == 2 else 4
+        
+def ex6():
+    winCount = 0
+    loseCount = 0
+    while True:
+        if guess_game(choose_level()):
+            winCount += 1
+        else:
+            loseCount += 1
+        
+        player = input("ban co muon choi tiep khong (Y/N): ")
+        if player.lower() == "n":
+            break
+        
+    print(f"you played {winCount + loseCount} times")
+    print(f"you winned {winCount} times")
+    print(f"you losed {loseCount} times")
+    
+        
+    
+ex6()
