@@ -1,3 +1,6 @@
+from random import randint
+import random
+
 def guess_game(turns):
     number = random.randint(1,100)
     
@@ -27,15 +30,15 @@ def guess_game(turns):
         
             
 def choose_level():
-    print("\t che do 1 (easy): ban co 6 luot doan.")
-    print("\t che do 2 (medium): ban co 4 luot doan.")
-    print("\t che do 3 (hard): ban co 2 luot doan.")
+    print("\t che do 1 (easy): ban co 9 luot doan.")
+    print("\t che do 2 (medium): ban co 6 luot doan.")
+    print("\t che do 3 (hard): ban co 4 luot doan.")
     
     limit = True
     while limit:
         level = int(input("chon che do ban muon choi (1->3): "))
         if level >= 1 and level <= 3:
-           return 6 if level == 1 else 4 if level == 2 else 4
+           return 9 if level == 1 else 6 if level == 2 else 4
         
 def ex6():
     winCount = 0

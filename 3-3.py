@@ -23,7 +23,7 @@ def sum(n):
 
 #cau 4:
 def vowels(string):
-    vowelsL = [u,e,o,a,i]
+    vowelsL = ["u","e","o","a","i"]
     count = 0
     for i in string:
         if i in vowelsL:

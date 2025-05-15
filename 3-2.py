@@ -1,4 +1,4 @@
-from random import random
+from random import randint
 
 
 #cau1
@@ -31,7 +31,7 @@ def ex4(number):
 
 #cau 5
 def guess_number():
-    number = random(1,9)
+    number = random.randint(1, 9)
     nums = int(input("chon so lan ban muon doan: "))
     
     for i in range(len(nums)):
@@ -46,13 +46,13 @@ def guess_number():
 #cau 6
 def weekly(number):
     week = {
-        1: Sunday,
-        2: Monday,
-        3: Tuesday,
-        4: Wednesday,
-        5: Thursday,
-        6: Friday,
-        7: Saturday
+        1: "Sunday",
+        2: "Monday",
+        3: "Tuesday",
+        4: "Wednesday",
+        5: "Thursday",
+        6: "Friday",
+        7: "Saturday"
     }
 
     return(week[number])
