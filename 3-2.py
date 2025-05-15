@@ -1,4 +1,4 @@
-from random import randint
+import random
 
 
 #cau1
