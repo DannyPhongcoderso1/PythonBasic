@@ -39,7 +39,7 @@ def print_index_number(list, X):
     print(newList)
     print(count)
             
-def elemental_number(n):
+def prime_number(n):
     if n < 2:
         return False
     for i in range(2, int(math.sqrt(n)+1)):
@@ -49,6 +49,7 @@ def elemental_number(n):
     
 def find_unique(list):
 
+#Trường hợp 1: Số xuất hiện 1 lần
     numDict = {}
     for key in list:
         if key not in numDict:
@@ -59,7 +60,9 @@ def find_unique(list):
     for key in numDict:
         if numDict[key] == 1:
             newList.append(key)
-    print(newList)
+    print(f"số xuất hiện 1 lần: {newList}")
+#Trường hợp 2: loại bỏ số bị trùng
+    print(f"danh sach sau khi loại bỏ số bị trùng: {numDict}")
             
         
             
@@ -106,7 +109,7 @@ if __name__ == '__main__':
             print_index_number(cList,num)
         elif menu == '6':
             for i in range(len(cList)):
-                if elemental_number(cList[i]):
+                if prime_number(cList[i]):
                     print(f"số nguyên tố: {cList[i]}, vị trí: {i}")
         elif menu == '7':
             find_unique(cList)
